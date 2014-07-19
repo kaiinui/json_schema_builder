@@ -1,4 +1,5 @@
 require_relative 'property'
+require 'active_support/core_ext/string'
 
 class Model
   attr_accessor :name, :properties
@@ -14,6 +15,6 @@ class Model
   end
 
   def plural_name
-    self.name
+    self.name.to_s.pluralize
   end
 end

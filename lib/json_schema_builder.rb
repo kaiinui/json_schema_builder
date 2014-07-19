@@ -1,3 +1,5 @@
+
+
 class JSONSchemaBuilder
   class << self
     def build_from_schema(schema)
@@ -19,22 +21,31 @@ class JSONSchemaBuilder
             end
         }
         json[:links] = []
-        ["GET", "POST"].each do |method|
+
+        [
+            {method: "GET", rel: "index"},
+            {method: "POST", rel: "create"}
+        ].each do |link|
           json[:links].push({
-            description: "Some description.", # [MOCK]
-            href: "/#{model.plural_name}",
-            method: method,
-            rel: "some_rel", # [MOCK]
-            title: "some_title" # [MOCK]
+                                description: "#{link[:rel]} #{model.name}.",
+                                href: "/#{model.plural_name}",
+                                method: link[:method],
+                                rel: link[:rel],
+                                title: link[:rel]
           })
         end
-        ["GET", "PATCH", "DELETE"].each do |method|
+
+        [
+            {method: "GET", rel: "show"},
+            {method: "PATCH", rel: "update"},
+            {method: "DELETE", rel: "destroy"}
+        ].each do |link|
           json[:links].push({
-            description: "Some description.", # [MOCK]
-            href: "/#{model.plural_name}/{#/definitions/#{model.name}/id}",
-            method: method,
-            rel: "some_rel",
-            title: "some_title"
+                                description: "#{link[:rel]} #{model.name}.",
+                                href: "/#{model.plural_name}/{#/definitions/#{model.name}/id}",
+                                method: link[:method],
+                                rel: link[:rel],
+                                title: link[:rel]
           })
         end
       end
