@@ -1,3 +1,5 @@
+require_relative 'model'
+
 class SchemaBuilder
   attr_accessor :models
 

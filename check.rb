@@ -1,4 +1,4 @@
-require 'schema_builder'
+require_relative 'lib/schema_builder'
 
 SchemaBuilder.build do
   model :app do
