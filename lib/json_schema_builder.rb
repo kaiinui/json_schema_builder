@@ -58,6 +58,17 @@ class JSONSchemaBuilder
               }
           }
         end
+
+        json[:properties] = schema.models.map do |model|
+          {
+              model.name => {
+                  "$ref" => "#/definitions/#{model.name}"
+              }
+          }
+        end
+
+        json[:type] = ["object"]
+        json[:description] = schema.app_description
       end
 
       json
