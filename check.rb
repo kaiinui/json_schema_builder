@@ -1,4 +1,5 @@
 require_relative 'lib/schema_builder'
+require_relative 'lib/json_schema_builder'
 
 schema = SchemaBuilder.build do
   model :app do
@@ -7,4 +8,4 @@ schema = SchemaBuilder.build do
   end
 end
 
-puts schema.models[0].properties[0].options
+puts JSONSchemaBuilder.build_from_schema(schema)
