@@ -1,15 +1,15 @@
-require_relative 'field'
+require_relative 'property'
 
 class Model
-  attr_accessor :name, :fields
+  attr_accessor :name, :properties
 
   def initialize(name, &blk)
     self.name = name
-    self.fields = []
+    self.properties = []
     self.instance_eval &blk
   end
 
-  def field(name, options)
-    field.push Field.new(name, options)
+  def property(name, *options)
+    properties.push Property.new(name, options)
   end
 end

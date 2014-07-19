@@ -1,4 +1,4 @@
-class Field
+class Property
   attr_accessor :name, :options
 
   def initialize(name, options)
