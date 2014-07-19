@@ -12,4 +12,8 @@ class Model
   def property(name, options)
     properties.push Property.new(name, options)
   end
+
+  def plural_name
+    self.name
+  end
 end
