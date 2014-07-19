@@ -7,9 +7,15 @@ schema = SchemaBuilder.build do
   base "http://example.com/api"
   app :my_app
   description "An example app."
+
   model :app do
-    property :id, description: "some description", example: "1", format: "UUID", read_only: "true", type: "String"
-    property :name, description: "some description", example: "1", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
+    property :id, description: "An id", example: "1", format: "UUID", read_only: "true", type: "String"
+    property :name, description: "name", example: "1", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
+  end
+
+  model :recipe do
+    property :id, description: "id", example: "1", format: "UUID", read_only: "true", type: "String"
+    property :name, description: "name", example: "1", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
   end
 end
 
