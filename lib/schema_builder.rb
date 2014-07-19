@@ -15,9 +15,7 @@ class SchemaBuilder
     self.models = []
   end
 
-  def model(&blk)
-    model = Model.new
-    model.instance_eval &blk
-    models.push model
+  def model(name, &blk)
+    models.push Model.new(name, &blk)
   end
 end

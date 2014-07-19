@@ -1,10 +1,12 @@
 require_relative 'field'
 
 class Model
-  attr_accessor :fields
+  attr_accessor :name, :fields
 
-  def initialize
+  def initialize(name, &blk)
+    self.name = name
     self.fields = []
+    self.instance_eval &blk
   end
 
   def field(name, options)
