@@ -15,7 +15,7 @@ class JSONSchemaBuilder
 
         json_model
       end
-      
+
       json
     end
   end
