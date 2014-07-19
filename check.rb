@@ -10,12 +10,12 @@ schema = SchemaBuilder.build do
 
   model :app do
     property :id, description: "An id", example: "1", format: "UUID", read_only: "true", type: "String"
-    property :name, description: "name", example: "1", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
+    property :name, description: "name", example: "my app", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
   end
 
   model :recipe do
     property :id, description: "id", example: "1", format: "UUID", read_only: "true", type: "String"
-    property :name, description: "name", example: "1", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
+    property :name, description: "name", example: "potato chips", pattern: "^[a-z][a-z0-9-]{3,50}$", read_only: "true", type: "String"
   end
 end
 
