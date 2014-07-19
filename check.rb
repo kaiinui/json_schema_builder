@@ -1,3 +1,4 @@
+require 'pp'
 require_relative 'lib/schema_builder'
 require_relative 'lib/json_schema_builder'
 
@@ -8,4 +9,4 @@ schema = SchemaBuilder.build do
   end
 end
 
-puts JSONSchemaBuilder.build_from_schema(schema)
+pp JSONSchemaBuilder.build_from_schema(schema)

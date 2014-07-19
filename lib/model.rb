@@ -9,7 +9,7 @@ class Model
     self.instance_eval &blk
   end
 
-  def property(name, *options)
+  def property(name, options)
     properties.push Property.new(name, options)
   end
 end
