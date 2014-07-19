@@ -1,3 +1,4 @@
+require 'yaml'
 require 'pp'
 require_relative 'lib/schema_builder'
 require_relative 'lib/json_schema_builder'
@@ -19,4 +20,6 @@ schema = SchemaBuilder.build do
   end
 end
 
-pp JSONSchemaBuilder.build_from_schema(schema)
+File.open("schema.yml", "w") do |file|
+  file.write JSONSchemaBuilder.build_from_schema(schema).to_yaml
+end

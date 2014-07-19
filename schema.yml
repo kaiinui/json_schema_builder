@@ -1,0 +1,121 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+:definitions:
+  :app:
+    "$schema": http://json-schema.org/draft-04/hyper-schema
+    :description: Is a app.
+    :id: my_app/app
+    :title: app
+    :type:
+    - object
+    :required:
+    - id
+    :definitions:
+    - :id:
+        :description: An id
+        :example: '1'
+        :format: UUID
+        :read_only: 'true'
+        :type: String
+    - :name:
+        :description: name
+        :example: my app
+        :pattern: "^[a-z][a-z0-9-]{3,50}$"
+        :read_only: 'true'
+        :type: String
+    :links:
+    - :description: index app.
+      :href: "/apps"
+      :method: GET
+      :rel: index
+      :title: index
+    - :description: create app.
+      :href: "/apps"
+      :method: POST
+      :rel: create
+      :title: create
+    - :description: show app.
+      :href: "/apps/{#/definitions/app/id}"
+      :method: GET
+      :rel: show
+      :title: show
+    - :description: update app.
+      :href: "/apps/{#/definitions/app/id}"
+      :method: PATCH
+      :rel: update
+      :title: update
+    - :description: destroy app.
+      :href: "/apps/{#/definitions/app/id}"
+      :method: DELETE
+      :rel: destroy
+      :title: destroy
+    :properties:
+    - :id:
+        "$ref": "#/definitions/app/definitions/id"
+    - :id:
+        "$ref": "#/definitions/app/definitions/name"
+  :recipe:
+    "$schema": http://json-schema.org/draft-04/hyper-schema
+    :description: Is a recipe.
+    :id: my_app/recipe
+    :title: recipe
+    :type:
+    - object
+    :required:
+    - id
+    :definitions:
+    - :id:
+        :description: id
+        :example: '1'
+        :format: UUID
+        :read_only: 'true'
+        :type: String
+    - :name:
+        :description: name
+        :example: potato chips
+        :pattern: "^[a-z][a-z0-9-]{3,50}$"
+        :read_only: 'true'
+        :type: String
+    :links:
+    - :description: index recipe.
+      :href: "/recipes"
+      :method: GET
+      :rel: index
+      :title: index
+    - :description: create recipe.
+      :href: "/recipes"
+      :method: POST
+      :rel: create
+      :title: create
+    - :description: show recipe.
+      :href: "/recipes/{#/definitions/recipe/id}"
+      :method: GET
+      :rel: show
+      :title: show
+    - :description: update recipe.
+      :href: "/recipes/{#/definitions/recipe/id}"
+      :method: PATCH
+      :rel: update
+      :title: update
+    - :description: destroy recipe.
+      :href: "/recipes/{#/definitions/recipe/id}"
+      :method: DELETE
+      :rel: destroy
+      :title: destroy
+    :properties:
+    - :id:
+        "$ref": "#/definitions/recipe/definitions/id"
+    - :id:
+        "$ref": "#/definitions/recipe/definitions/name"
+:properties:
+- :app:
+    "$ref": "#/definitions/app"
+- :recipe:
+    "$ref": "#/definitions/recipe"
+:type:
+- object
+:description: An example app.
+:links:
+- :href: http://example.com/api
+  :rel: self
+:title: An example App JSON Schema.
