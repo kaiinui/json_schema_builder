@@ -1,7 +1,7 @@
 require_relative 'model'
 
 class SchemaBuilder
-  attr_accessor :app_name, :app_description, :models
+  attr_accessor :_title, :base_uri, :app_name, :app_description, :models
 
   class << self
     def build(&blk)
@@ -25,5 +25,13 @@ class SchemaBuilder
 
   def description(description)
     self.app_description = description
+  end
+
+  def base(uri)
+    self.base_uri = uri
+  end
+
+  def title(title)
+    self._title = title
   end
 end

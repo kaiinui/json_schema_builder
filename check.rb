@@ -3,6 +3,8 @@ require_relative 'lib/schema_builder'
 require_relative 'lib/json_schema_builder'
 
 schema = SchemaBuilder.build do
+  title "An example App JSON Schema."
+  base "http://example.com/api"
   app :my_app
   description "An example app."
   model :app do

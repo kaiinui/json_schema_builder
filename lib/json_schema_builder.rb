@@ -69,6 +69,13 @@ class JSONSchemaBuilder
 
         json[:type] = ["object"]
         json[:description] = schema.app_description
+        json[:links] = [
+            {
+                href: schema.base_uri,
+                rel: "self"
+            }
+        ]
+        json[:title] = schema._title
       end
 
       json
